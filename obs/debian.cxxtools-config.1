@@ -1,0 +1,68 @@
+.\"                                      Hey, EMACS: -*- nroff -*-
+.\" First parameter, NAME, should be all caps
+.\" Second parameter, SECTION, should be 1-8, maybe w/ subsection
+.\" other parameters are allowed: see man(7), man(1)
+.TH CXXTOOLS-CONFIG 1 "2006-05-10"
+.\" Please adjust this date whenever revising the manpage.
+.\"
+.\" Some roff macros, for reference:
+.\" .nh        disable hyphenation
+.\" .hy        enable hyphenation
+.\" .ad l      left justify
+.\" .ad b      justify to both left and right margins
+.\" .nf        disable filling
+.\" .fi        enable filling
+.\" .br        insert line break
+.\" .sp <n>    insert n+1 empty lines
+.\" for manpage-specific macros, see man(7)
+.SH NAME
+cxxtools-config \- output compiler flags for cxxflags usage
+.SH SYNOPSIS
+.B cxxtools-config
+.RB [ --libs ]
+.RB [ --cxxflags ]
+.RB [ --logging ]
+.RB [ --properties
+.IR app ]
+.RB [ --logfile
+.IR file ]
+.RB [ --help ]
+.RB [ --version ]
+.SH DESCRIPTION
+This manual page documents briefly the
+.B cxxtools-config
+command.
+.SH OPTIONS
+This program's options starting with two dashes (`-').
+A summary of options is included below.
+.TP
+.B --libs
+Output linker flags.
+.TP
+.B --cxxflags
+Output C++ preprocessor and compiler flags.
+.TP
+.B --logging
+Configured logging type.
+.TP
+.B --properties app
+Print logging properties template for application
+.BR app .
+.TP
+.B --logfile file
+Set logfile to
+.I file
+in following
+.B --properties
+option.
+.TP
+.B --help
+Show summary of options.
+.TP
+.B \-\-version
+Show version of program.
+.SH AUTHOR
+cxxtools was written by Tommi M\[:a]kitalo <tommi@maekitalo.de>.
+.PP
+This manual page was written by Kari Pahula <kaol@debian.org>,
+for the Debian project (but may be used by others).

@@ -1,0 +1,5 @@
+# Looks like CPPFLAGS does get applied everywhere so this looks like a
+# false positive.
+libcxxtools9: hardening-no-fortify-functions usr/lib/libcxxtools-bin.so.9.0.0
+libcxxtools9: hardening-no-fortify-functions usr/lib/libcxxtools-json.so.9.0.0
+libcxxtools9: hardening-no-fortify-functions usr/lib/libcxxtools-xmlrpc.so.9.0.0
