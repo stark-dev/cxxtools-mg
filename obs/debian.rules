@@ -22,3 +22,6 @@ binary-post-install/libcxxtools8::
 
 binary-post-install/libcxxtools-dev::
 	rm -f debian/libcxxtools-dev/usr/share/doc/libcxxtools-dev/README #just some installation notes
+
+override_dh_strip:
+	dh_strip --dbg-package=libcxxtools-dbg

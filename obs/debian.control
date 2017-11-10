@@ -31,3 +31,10 @@ Description: library of unrelated but useful C++ classes
  easy parsing of CGI parameters (GET and POST) in a CGI program.
  .
  This package has the development headers and the static libraries.
+
+Package: libcxxtools-dbg
+Architecture: any
+Section: debug
+Priority: optional
+Depends: libcxxtools9 (= ${binary:Version}), ${misc:Depends}
+Description: libcxxtools debugging symbols
