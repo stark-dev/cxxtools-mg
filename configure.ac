@@ -1,3 +1,4 @@
+# This is upstream cxxtools-2.2.1 with tweaks for 42ity project
 AC_INIT([cxxtools], [2.2.1], [Tommi Maekitalo <tommi@tntnet.org>])
 AM_INIT_AUTOMAKE([subdir-objects])
 
