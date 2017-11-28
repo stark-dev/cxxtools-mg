@@ -26,7 +26,7 @@ Group:          Development/Libraries/C and C++
 Url:            http://www.tntnet.org/cxxtools.html
 
 #Source0:        http://www.tntnet.org/download/cxxtools-%{version}.tar.gz
-Source0:        cxxtools_%{version}.tar.gz
+Source0:        %{name}-%{version}.tar.gz
 # PATCH-FIX-UPSTREAM  cxxtools-2.2-iconvstream-return.diff https://sourceforge.net/p/cxxtools/bugs/4/ tommi@tntnet.org -- fix "no return" warning
 #Patch0:         cxxtools-2.2-iconvstream-return.diff
 # PATCH-FIX-UPSTREAM
