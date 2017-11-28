@@ -35,7 +35,7 @@ pipeline {
             description: 'Attempt "make distcheck" in this run?',
             name: 'DO_TEST_DISTCHECK')
         booleanParam (
-            defaultValue: true,
+            defaultValue: false,
             description: 'Attempt a "make install" check in this run?',
             name: 'DO_TEST_INSTALL')
         string (
@@ -66,6 +66,7 @@ pipeline {
                     steps {
                         sh 'cppcheck --std=c++11 --enable=all --inconclusive --xml --xml-version=2 . 2>cppcheck.xml'
                         archiveArtifacts artifacts: '**/cppcheck.xml'
+                        sh 'rm -f cppcheck.xml'
                     }
         }
         stage ('prepare') {
