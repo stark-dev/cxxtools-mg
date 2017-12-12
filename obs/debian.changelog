@@ -1,0 +1,198 @@
+cxxtools (2.2.1-2etn1) unstable; urgency=high
+
+  * Enable debug symbol debian packages
+
+ -- Jim Klimov <EvgenyKlimov@eaton.com>  Thu, 9 Nov 2017 15:09:45 +0200
+
+cxxtools (2.2.1-2) UNRELEASED; urgency=low
+
+  * debian/libcxxtools-dev.install: install pkgconfig files
+  * debian/control:
+    - Add Arnaud Quette to Uploaders
+    - Bump Standards-Version to 3.9.6
+
+ -- Arnaud Quette <aquette@debian.org>  Wed, 22 Oct 2014 11:33:49 +0200
+
+cxxtools (2.2.1-1) unstable; urgency=high
+
+  * New upstream release
+  * CVE-2013-7298 remote denial of service in HTTP query parameter parsing
+    fixed (Closes: #735880)
+  * Bump Standards-Version 3.9.5 (No changes necessary)
+
+ -- Kari Pahula <kaol@debian.org>  Tue, 21 Jan 2014 18:55:56 +0200
+
+cxxtools (2.2-1) unstable; urgency=low
+
+  * New upstream release (SONAME 9)
+  * Drop patches
+    * use_get_current_dir_name (fixed in upstream)
+    * no_shared_flag
+  * Standards-Version 3.9.4 and debhelper compat 9.
+
+ -- Kari Pahula <kaol@debian.org>  Mon, 20 May 2013 21:24:28 +0300
+
+cxxtools (2.1.1-1) unstable; urgency=low
+
+  * New upstream release
+  * Enable iconvstream support. (Closes: #673269)
+  * Use get_current_dir_name in directoryimpl.c to avoid using PATH_MAX
+    altogether.
+
+ -- Kari Pahula <kaol@debian.org>  Sat, 26 May 2012 14:08:57 +0300
+
+cxxtools (2.1-2) unstable; urgency=low
+
+  * Fix FTBFS on armel and armhf by again forcing
+    --with-atomictype=pthread as configure parameter.
+  * Added friend bool operator==(const Char&, unsigned int) to Char class
+    to make comparison to L'\n' like literals (which are unsigned int on
+    that) work on arm*.
+  * Removed unused build dep autoconf-archive.
+
+ -- Kari Pahula <kaol@debian.org>  Sat, 12 May 2012 11:01:02 +0300
+
+cxxtools (2.1-1) unstable; urgency=low
+
+  * New upstream release (SONAME 8)
+    - Removed patch gcc4.7_ftbfs_fix since upstream source is GCC 4.7 safe.
+    - Patches iconvstream_size_t_fix, configure.in_fixes and
+      arm_gcc4.6_ftbfs_fix removed since they have been implemented in
+      upstream source.
+  * Standards-Version 3.9.3.
+  * Use dh-autoreconf.
+
+ -- Kari Pahula <kaol@debian.org>  Sat, 28 Apr 2012 10:30:29 +0300
+
+Cxxtools (2.0-4.1) unstable; urgency=low
+
+  * Non maintainer upload.
+  * Fix build failure with gcc-4.7. Closes: #668698.
+
+ -- Matthias Klose <doko@debian.org>  Sat, 14 Apr 2012 19:08:15 +0200
+
+cxxtools (2.0-4) unstable; urgency=low
+
+  * Add atomictype=pthread on armhf too.
+
+ -- Kari Pahula <kaol@debian.org>  Wed, 07 Dec 2011 00:16:52 +0200
+
+cxxtools (2.0-3) unstable; urgency=low
+
+  * Force atomictype=pthread on architectures with no assembly code
+    implementation of atomic types (ie. ![armel amd64 i386 mips mipsel
+    powerpc]) (Closes: #640828) (Thanks to Aurelien Jarno)
+  * #define PATH_MAX 4096 if PATH_MAX is not set to avoid FTBFS on Hurd.
+
+ -- Kari Pahula <kaol@debian.org>  Tue, 06 Dec 2011 22:05:30 +0200
+
+cxxtools (2.0-2) unstable; urgency=low
+
+  * Add arm_gcc4.6_ftbfs_fix from upstream r1136 to resolve FTBFS.
+    (Closes: #640827) (Thanks to Daniel T Chen)
+
+ -- Kari Pahula <kaol@debian.org>  Thu, 17 Nov 2011 19:30:20 +0200
+
+cxxtools (2.0-1) unstable; urgency=low
+
+  * New upstream release (SONAME 7)
+  * Standards-Version 3.9.2 (no changes necessary).
+  * Drop quilt as a build dependency and use debian/source/format "3.0
+    (quilt)".
+  * Check the return value of iconv for (size_t)-1 in iconvstream.cpp.
+    (Closes: #637065)
+  * Drop -I from the aclocal call to avoid including a nonexisting
+    directory. (Closes: #634536)
+  * Parse and use the parallel= DEB_BUILD_OPTION.
+  * Don't install the .la files.
+
+ -- Kari Pahula <kaol@debian.org>  Mon, 08 Aug 2011 14:33:27 +0300
+
+cxxtools (1.4.8-3) unstable; urgency=low
+
+  * Patch src/Makefile.am to not add -shared to libcxxtools_la_LDFLAGS.
+    (Closes: #526341)
+  * Patch src/hdstream.cpp to #include <cstdio>. (Closes: #504974)
+  * Re-added quilt as a build dep.
+  * Standards-Version 3.8.1 (No changes needed).
+  * Changed libcxxtools-dev's dependency on libstdc++-dev to
+    libstdc++6-4.3-dev | libstdc++-dev.
+
+ -- Kari Pahula <kaol@debian.org>  Sat, 09 May 2009 01:02:53 +0300
+
+cxxtools (1.4.8-2) unstable; urgency=low
+
+  * Made libcxxtools-dev depend on libcxxtools6, not libcxxtools5.
+
+ -- Kari Pahula <kaol@debian.org>  Mon, 16 Jun 2008 12:24:28 +0300
+
+cxxtools (1.4.8-1) unstable; urgency=high
+
+  * New upstream release.
+  * SONAME bump to 6.
+  * Fix FTBFS bug on sparc. (Closes: #475590)
+  * Removed the src/tcpstream.cpp patch, which was included upstream.
+  * Removed quilt build dependency, as this version is unpatched.
+
+ -- Kari Pahula <kaol@debian.org>  Tue, 03 Jun 2008 22:34:29 +0300
+
+cxxtools (1.4.7-1) unstable; urgency=low
+
+  * New upstream release
+  * Standards-Version 3.7.3 (Homepage control field added).
+  * SONAME bump to 5.
+  * Install examples from demo/ to the libcxxtools-dev package.
+  * Remove the no longer needed patches iconv_test_removed and
+    libltdl_from_debian.
+  * Unapplied the last NMU's patch, since the new upstream version
+    incorporated the necessary header file changes.
+  * Patched src/tcpstream.cpp to call memmove, not std::memmove.
+
+ -- Kari Pahula <kaol@debian.org>  Thu, 27 Mar 2008 11:22:06 +0200
+
+cxxtools (1.4.3.6-1.1) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * Fix gcc-4.3 FTBFS using patch by "brian m. carlson"
+    <sandals@crustytoothpaste.ath.cx>. (Closes: #455085, #461679)
+
+ -- Marc 'HE' Brockschmidt <he@debian.org>  Sun, 16 Mar 2008 16:32:50 +0100
+
+cxxtools (1.4.3.6-1) unstable; urgency=low
+
+  * New upstream release
+  * SONAME 3 -> 4
+  * Added autoconf-archive as build-dep in order to use ACX_PTHREAD.
+
+ -- Kari Pahula <kaol@debian.org>  Mon, 14 May 2007 18:10:03 +0300
+
+cxxtools (1.4.3.1-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Kari Pahula <kaol@debian.org>  Thu,  7 Dec 2006 00:06:47 +0200
+
+cxxtools (1.4.3-2) unstable; urgency=low
+
+  * Added dependency on libstdc++-dev for libcxxtools-dev
+
+ -- Kari Pahula <kaol@debian.org>  Fri, 27 Oct 2006 22:40:03 +0300
+
+cxxtools (1.4.3-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Kari Pahula <kaol@debian.org>  Fri, 25 Aug 2006 11:43:43 +0300
+
+cxxtools (1.4.2-2) unstable; urgency=low
+
+  * Added missing dependency to libcxxtools3 for libcxxtools-dev
+
+ -- Kari Pahula <kaol@debian.org>  Wed, 12 Jul 2006 11:18:56 +0300
+
+cxxtools (1.4.2-1) unstable; urgency=low
+
+  * Initial release Closes: #366834
+  * Use the libltdl in Debian instead of the included one
+
+ -- Kari Pahula <kaol@debian.org>  Sat,  1 Jul 2006 22:31:49 +0300

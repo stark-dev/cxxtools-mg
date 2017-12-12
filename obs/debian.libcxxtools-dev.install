@@ -1,0 +1,6 @@
+debian/tmp/usr/lib/*.so		usr/lib
+debian/tmp/usr/lib/*.a		usr/lib
+debian/tmp/usr/bin/		usr
+debian/tmp/usr/include/		usr
+debian/cxxtools-config.1	usr/share/man/man1
+debian/tmp/usr/lib/pkgconfig/*.pc

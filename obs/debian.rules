@@ -1,0 +1,27 @@
+#!/usr/bin/make -f
+
+DEB_BUILD_PARALLEL=yes
+
+include /usr/share/cdbs/1/rules/autoreconf.mk
+include /usr/share/cdbs/1/class/autotools.mk
+include /usr/share/cdbs/1/rules/debhelper.mk
+
+DEB_CONFIGURE_NORMAL_ARGS += --enable-shared --enable-static --with-iconvstream=yes
+
+# Automatic detection doesn't fallback to working atomic type.
+# Force it to pthread for architectures not having specific code.
+ifeq (,$(filter $(DEB_HOST_ARCH_CPU), amd64 i386 mips mipsel powerpc))
+DEB_CONFIGURE_NORMAL_ARGS += --with-atomictype=pthread
+endif
+
+clean::
+	rm -f config.sub config.guess
+
+binary-post-install/libcxxtools8::
+	rm -f debian/libcxxtools8/usr/share/doc/libcxxtools6/README #just some installation notes
+
+binary-post-install/libcxxtools-dev::
+	rm -f debian/libcxxtools-dev/usr/share/doc/libcxxtools-dev/README #just some installation notes
+
+override_dh_strip:
+	dh_strip --dbg-package=libcxxtools-dbg

@@ -1,0 +1,28 @@
+Index: cxxtools-2.1.1/src/directoryimpl.cpp
+===================================================================
+--- cxxtools-2.1.1.orig/src/directoryimpl.cpp	2012-05-21 22:52:14.000000000 +0300
++++ cxxtools-2.1.1/src/directoryimpl.cpp	2012-05-21 23:21:08.204430071 +0300
+@@ -34,6 +34,7 @@
+ #include <errno.h>
+ #include <stdio.h>
+ #include <stdlib.h>
++#include <memory>
+ 
+ namespace cxxtools {
+ 
+@@ -194,12 +195,12 @@
+ 
+ std::string DirectoryImpl::cwd()
+ {
+-    char cwd[PATH_MAX];
++    std::auto_ptr<char> cwd(get_current_dir_name());
+ 
+-    if( !getcwd(cwd, PATH_MAX) )
++    if( !cwd.get() )
+         throw SystemError("getcwd");
+ 
+-    return std::string(cwd);
++    return std::string(cwd.get());
+ }
+ 
+ 
