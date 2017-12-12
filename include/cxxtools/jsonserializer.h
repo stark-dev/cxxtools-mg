@@ -125,6 +125,10 @@ namespace cxxtools
 
             void beautify(bool sw)    { _formatter.beautify(sw); }
 
+            bool inputUtf8() const     { return _formatter.inputUtf8(); }
+
+            void inputUtf8(bool sw)    { _formatter.inputUtf8(sw); }
+
             template <typename T>
             static std::string toString(const T& type, const std::string& name, bool beautify = false)
             {

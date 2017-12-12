@@ -336,7 +336,8 @@ void JsonFormatter::stringOut(const std::string& str)
         else if (*it == '\t')
             *_ts << L'\\'
                 << L't';
-        else if (static_cast<unsigned char>(*it) >= 0x80 || static_cast<unsigned char>(*it) < 0x20)
+        else if ((!_inputUtf8 && static_cast<unsigned char>(*it) >= 0x80) ||
+                                 static_cast<unsigned char>(*it) < 0x20)
         {
             *_ts << L'\\'
                  << L'u';
