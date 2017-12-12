@@ -35,7 +35,7 @@ namespace cxxtools
 
 JsonSerializer::JsonSerializer(std::ostream& os,
     TextCodec<Char, char>* codec)
-    : _ts(new TextOStream(os, codec ? codec : new Utf8Codec())),
+    : _ts(new TextOStream(os, codec)),
       _inObject(false)
 {
     _formatter.begin(*_ts);
@@ -45,7 +45,7 @@ JsonSerializer& JsonSerializer::begin(std::ostream& os,
     TextCodec<Char, char>* codec)
 {
     delete _ts;
-    _ts = new TextOStream(os, codec ? codec : new Utf8Codec());
+    _ts = new TextOStream(os, codec);
     _formatter.begin(*_ts);
     return *this;
 }
